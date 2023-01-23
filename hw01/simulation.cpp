@@ -21,11 +21,10 @@ int main()
 
     float t_min = 0;
     float t_max = 10;
-    float n_t = 100000; //1000000
+    float n_t = 3500000;
 
     float d_t = (t_max-t_min)/n_t;
 
-    std::cout << d_t;
 
     std::vector<double> t(n_t);
 
@@ -79,26 +78,18 @@ int main()
 
         // save each set of y positions as a new line in the csv
         for(int i=0; i < y.size(); i++) {
-            if (i == (y.size() - 1)) {
+            if (i == (y.size() - 1)) {  // last value so don't add comma to end
                 HW1_curve_pos << y.at(i);
-                // HW1_curve_vel << v.at(i);
-                // HW1_curve_acc << a.at(i);
             }
             else {
                 HW1_curve_pos << y.at(i) << ',';
-                // HW1_curve_vel << v.at(i) << ',';
-                // HW1_curve_acc << a.at(i) << ',';
             }
         }
         
         HW1_curve_pos << '\n';
-        // HW1_curve_vel << '\n';
-        // HW1_curve_acc << '\n';
 
     }
 
     HW1_curve_pos.close();
-    // HW1_curve_vel.close();
-    // HW1_curve_acc.close();
     
 }
